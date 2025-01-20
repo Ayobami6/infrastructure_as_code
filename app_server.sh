@@ -20,6 +20,7 @@ source venv/bin/activate
 
 # Install Python dependencies
 pip install -r requirements.txt || { echo "Failed to install Python dependencies"; exit 1; }
+pip install gunicorn
 
 # Enable and start Redis
 sudo systemctl enable redis
