@@ -39,7 +39,7 @@ User=$user
 Group=www-data
 WorkingDirectory=$cwd
 Environment=\"PATH=$cwd/venv/bin\"
-ExecStart=$cwd/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:$cwd/$1.sock --chown-socket www-data:www-data $1.wsgi:application
+ExecStart=$cwd/venv/bin/gunicorn --access-logfile - --workers 3 --bind 0.0.0.0:8000 $1.wsgi:application
 
 [Install]
 WantedBy=multi-user.target

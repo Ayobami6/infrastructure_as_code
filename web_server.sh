@@ -10,6 +10,7 @@ set_up() {
         echo "No domain name or project name passed!. Usage web_server.sh <domain_name> <app_name>"
         exit 1
     fi
+    cwd=$(pwd)
 
     #  install nginx
     sudo apt-get update
@@ -25,7 +26,12 @@ set_up() {
     server {
         listen 80;
         server_name $1;
-        
+
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location /static/ {
+                root $cwd;
+        }
+
         location / {
             include proxy_params;
             proxy_pass http://localhost:8000;
