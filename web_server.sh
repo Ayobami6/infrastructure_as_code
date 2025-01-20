@@ -45,4 +45,4 @@ set_up() {
 
 }
 
-set_up
+set_up "$@"
