@@ -6,7 +6,7 @@ set_up() {
 
     # check if params are passed
     
-    if [[ "$#" -ne 3  ]]; then
+    if [[ "$#" -ne 2  ]]; then
         echo "No domain name or project name passed!. Usage web_server.sh <domain_name> <app_name>"
         exit 1
     fi
