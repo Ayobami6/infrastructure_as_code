@@ -3,7 +3,7 @@
 # set's up Liberty Gaia Monitor
 
 # install setup tools
-apt install wget python3 -y
+apt install wget python3 python3-psutil -y
 
 cwd=$(pwd)
 
