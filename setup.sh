@@ -1,4 +1,4 @@
-#!/bin/usr/bash
+#!/usr/bin/bash
 
 # set's up Liberty Gaia Monitor
 
