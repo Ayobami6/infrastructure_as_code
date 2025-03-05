@@ -8,7 +8,7 @@ apt install wget python3 -y
 cwd=$(pwd)
 
 # download the gaia script
-wget https://raw.githubusercontent.com/LibertytechX/GetLinkBackend/refs/heads/ayo/dev/monitoring/gaia.py?token=GHSAT0AAAAAAC73INS6JHIC4QZR3OLMNGXEZ6IJSNQ
+wget https://raw.githubusercontent.com/Ayobami6/infrastructure_as_code/refs/heads/master/gaia.py
 
 # change permission
 chmod +x gaia.py
