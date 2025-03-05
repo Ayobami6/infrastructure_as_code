@@ -32,6 +32,7 @@ EOF
 
 # reload systemd
 systemctl daemon-reload
+systemctl enable gaia
 
 echo "Please create a config file with the name <celery_service_name.json> "
 
