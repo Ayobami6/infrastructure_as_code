@@ -14,7 +14,6 @@ def load_config():
     try:
         with open("celery_service_name.json", "r") as f:
             config = json.load(f)
-        print(f"This is the config file: {config}")
         return config
     except FileNotFoundError:
         raise Exception(
@@ -50,12 +49,10 @@ def send_slack_alert(message):
 
 def get_all_running_celery_workers_processes():
     workers = []
-    celery_service_name = os.getenv("celery")
-    print(f"This is the celery service name: {celery_service_name}")
     for proc in psutil.process_iter(["pid", "cmdline"]):
         cmdline = proc.info["cmdline"]
         whole_command = " ".join(cmdline) if cmdline else ""
-        if cmdline and "celery" in whole_command:
+        if cmdline and "celery" in whole_command and "worker" in whole_command:
             workers.append(" ".join(cmdline))
             print(f"This is the worker command: {' '.join(cmdline)}")
     return workers
@@ -88,7 +85,6 @@ def get_all_systemd_celery_workers():
                         service_name = fields[1]
                         service_status = fields[3]
                     workers[service_name] = service_status
-        print("systemctl celery workers: ", workers)
     except subprocess.CalledProcessError as e:
         print(f"Error running systemctl: {e}")
     return workers
